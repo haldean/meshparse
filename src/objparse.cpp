@@ -9,6 +9,8 @@
 
 #include "parse_common.h"
 
+#pragma GCC visibility push(hidden)
+
 namespace meshparse {
 
 using namespace Eigen;
@@ -117,3 +119,4 @@ bool load_obj(istream& file, mesh &mesh) {
 
 } // namespace meshparse
 
+#pragma GCC visibility pop

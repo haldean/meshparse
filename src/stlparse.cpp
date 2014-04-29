@@ -15,6 +15,8 @@
 #define BAD_FILE 1
 #define END_SOLID 2
 
+#pragma GCC visibility push(hidden)
+
 namespace meshparse {
 
 using namespace Eigen;
@@ -30,14 +32,14 @@ using std::string;
 using std::vector;
 
 // may god have mercy on my soul.
-RE2 empty_re("^[\\s]*$");
-RE2 endface_re("^[\\s]*endfacet[\\s]*$");
-RE2 endloop_re("^[\\s]*endloop[\\s]*$");
-RE2 endsolid_re("^[\\s]*endsolid[\\s]*([\\w]*)[\\s]*$");
-RE2 facet_re("^[\\s]*facet[\\s]+normal[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]*$");
-RE2 oloop_re("^[\\s]*outer loop[\\s]*$");
-RE2 solid_re("^[\\s]*solid[\\s]*([\\w]*)[\\s]*$");
-RE2 vertex_re("^[\\s]*vertex[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]*$");
+static RE2 empty_re("^[\\s]*$");
+static RE2 endface_re("^[\\s]*endfacet[\\s]*$");
+static RE2 endloop_re("^[\\s]*endloop[\\s]*$");
+static RE2 endsolid_re("^[\\s]*endsolid[\\s]*([\\w]*)[\\s]*$");
+static RE2 facet_re("^[\\s]*facet[\\s]+normal[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]*$");
+static RE2 oloop_re("^[\\s]*outer loop[\\s]*$");
+static RE2 solid_re("^[\\s]*solid[\\s]*([\\w]*)[\\s]*$");
+static RE2 vertex_re("^[\\s]*vertex[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]*$");
 
 typedef struct {
     uint32_t verts[3];
@@ -254,3 +256,4 @@ bool load_stl(istream& file, mesh &mesh) {
 
 } // namespace meshparse
 
+#pragma GCC visibility pop
