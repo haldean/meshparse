@@ -5,23 +5,13 @@
 #include "objparse.h"
 #include "stlparse.h"
 
+#pragma GCC visibility push(hidden)
+
 namespace meshparse {
 
-using std::istream;
 using std::map;
 using std::pair;
-using std::string;
 using std::vector;
-
-bool load_mesh(const string &filename, istream &input, mesh &mesh) {
-    string ext = filename.substr(filename.length() - 4);
-    if (ext == "stl") {
-        return load_stl(input, mesh);
-    } else if (ext == "obj") {
-        return load_obj(input, mesh);
-    }
-    return false;
-}
 
 void merge_half_edges(mesh &mesh) {
     map<pair<unsigned int, unsigned int>, edge*> halfedges;
@@ -53,3 +43,5 @@ void merge_half_edges(mesh &mesh) {
 }
 
 } // namespace meshparse
+
+#pragma GCC visibility pop
