@@ -1,5 +1,5 @@
 VERSION=0.0.1
-BINARY=meshparse.so.$(VERSION)
+BINARY=meshparse.so
 
 all:
 	$(MAKE) -C src
