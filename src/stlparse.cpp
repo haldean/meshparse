@@ -15,6 +15,8 @@
 #define BAD_FILE 1
 #define END_SOLID 2
 
+namespace meshparse {
+
 using namespace Eigen;
 using namespace re2;
 
@@ -249,4 +251,6 @@ bool load_stl(istream& file, mesh &mesh) {
         << "  " << mesh.edges.size() << " edges." << endl;
     return true;
 }
+
+} // namespace meshparse
 

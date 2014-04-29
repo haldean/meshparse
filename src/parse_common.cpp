@@ -5,6 +5,8 @@
 #include "objparse.h"
 #include "stlparse.h"
 
+namespace meshparse {
+
 using std::istream;
 using std::map;
 using std::pair;
@@ -50,3 +52,4 @@ void merge_half_edges(mesh &mesh) {
     }
 }
 
+} // namespace meshparse

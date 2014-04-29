@@ -9,6 +9,8 @@
 
 using namespace Eigen;
 
+namespace meshparse {
+
 class vertex;
 class edge;
 class face;
@@ -92,5 +94,10 @@ class vector_comparitor {
     public:
         bool operator()(const Vector3f &v1, const Vector3f &v2) const;
 };
+
+// loads a mesh, guessing the appropriate loader from the file name.
+bool load_mesh(const std::string &filename, std::istream &input, mesh &mesh);
+
+} // namespace meshparse
 
 #endif

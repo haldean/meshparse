@@ -5,6 +5,8 @@
 
 #include "mesh.h"
 
-bool load_stl(std::istream &input, mesh &mesh);
+namespace meshparse {
+    bool load_stl(std::istream &input, mesh &mesh);
+}
 
 #endif

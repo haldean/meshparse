@@ -9,6 +9,8 @@
 
 #include "parse_common.h"
 
+namespace meshparse {
+
 using namespace Eigen;
 
 using std::back_inserter;
@@ -112,4 +114,6 @@ bool load_obj(istream& file, mesh &mesh) {
         << "  " << objfaces.size() << " faces in OBJ file." << endl;
     return true;
 }
+
+} // namespace meshparse
 

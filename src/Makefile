@@ -1,5 +1,5 @@
 VERSION=0.0.1
-BINARY=meshparse.so
+BINARY=libmeshparse.so
 
 CC=clang++
 CFLAGS=-c -pedantic -Wall -I../include/ -I../libs/ --std=c++0x -I/usr/include -O2 -fvisibility=hidden -fPIC

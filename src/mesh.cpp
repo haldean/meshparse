@@ -1,5 +1,7 @@
 #include "mesh.h"
 
+namespace meshparse {
+
 using std::cout;
 using std::endl;
 using std::vector;
@@ -264,3 +266,5 @@ bool vector_comparitor::operator()(const Vector3f &v1, const Vector3f &v2) const
 
     return false;
 }
+
+} // namespace meshparse

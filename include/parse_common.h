@@ -7,10 +7,9 @@
 
 #include "mesh.h"
 
-// loads a mesh, guessing the appropriate loader from the file name.
-bool load_mesh(const std::string &filename, std::istream &input, mesh &mesh);
-
-// set the pair pointer on edges by finding their buddy.
-void merge_half_edges(mesh &mesh);
+namespace meshparse {
+    // set the pair pointer on edges by finding their buddy.
+    void merge_half_edges(mesh &mesh);
+}
 
 #endif
