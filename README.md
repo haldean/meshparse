@@ -10,6 +10,7 @@ supported formats are:
 
 - Wavefront OBJ (.obj)
 - ASCII STL (.stl)
+- Binary STL (.stl)
 
 What's a half-edge data structure?
 --
