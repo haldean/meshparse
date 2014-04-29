@@ -96,7 +96,7 @@ class vector_comparitor {
 };
 
 // loads a mesh, guessing the appropriate loader from the file name.
-bool load_mesh(const std::string &filename, std::istream &input, mesh &mesh);
+bool load_mesh(const std::string &filename, std::ifstream &input, mesh &mesh);
 
 } // namespace meshparse
 

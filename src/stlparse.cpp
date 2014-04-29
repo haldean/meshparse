@@ -1,4 +1,4 @@
-#include "objparse.h"
+#include "stlparse.h"
 
 #include <cstdio>
 #include <iterator>
@@ -40,18 +40,6 @@ static RE2 facet_re("^[\\s]*facet[\\s]+normal[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[
 static RE2 oloop_re("^[\\s]*outer loop[\\s]*$");
 static RE2 solid_re("^[\\s]*solid[\\s]*([\\w]*)[\\s]*$");
 static RE2 vertex_re("^[\\s]*vertex[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]+([\\d.e-]+)[\\s]*$");
-
-typedef struct {
-    uint32_t verts[3];
-    Vector3f normal;
-} stlface;
-
-typedef struct {
-    uint32_t next_vertid;
-    map<Vector3f, uint32_t, vector_comparitor> vert_to_id;
-    vector<stlface> faces;
-
-} stlmesh;
 
 bool check_pattern_compilation() {
     bool ok = true;
@@ -207,7 +195,7 @@ void stl_to_mesh(stlmesh &stlm, mesh &mesh) {
     }
 }
 
-bool load_stl(istream& file, mesh &mesh) {
+bool load_ascii_stl(istream& file, mesh &mesh) {
     if (!check_pattern_compilation()) {
         cout << "Regular expressions didn't compile, abort." << endl;
         return false;
